@@ -3,8 +3,6 @@
   --tile-color-darker: #ffde5a;
   --heading-font: 'Muli', sans-serif;
   --heading-font-color: #ff2f2f;
-  --white: #fff;
-  --black: #000;
   --gap: 10px;
   --font-weight: 700;
   --font-size-basic: 20px;
@@ -18,7 +16,7 @@
 }
 
 body {
-  background-color: var(--black);
+  background-color: #fff;
   font-family: 'Open Sans', sans-serif;
   font-weight: 300;
   font-size: var(--font-size-basic);
@@ -59,12 +57,13 @@ header {
 }
 
 .tile {
-  height: 50px;
-  width: 50px;
+  height: 20px;
+  width: 20px;
   background-size:cover;
   background-position: center;
   background-color: var(--tile-color-lighter);
   margin-top: -5px;
+  border: 1px solid var(--heading-font-color);
 }
 
 .tile:hover,

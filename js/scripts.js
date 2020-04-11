@@ -1,7 +1,7 @@
 //Function that creates 10K 10px*10px image tiles
 function addImgItem() {
   //Shaping DOM structure
-  for (let i = 0; i < 400; i++) {
+  for (let i = 0; i < 10000; i++) {
     var $imgEl = document.createElement('img');
     $imgEl.classList.add('tile');
     $imgEl.setAttribute('src', './css/1.jpg');
