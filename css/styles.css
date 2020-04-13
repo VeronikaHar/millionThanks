@@ -24,6 +24,10 @@ body {
   margin: auto;
 }
 
+.board {
+  line-height: 0;
+}
+
 footer {
   height: 40px;
 }
@@ -62,8 +66,6 @@ header {
   background-size:cover;
   background-position: center;
   background-color: var(--tile-color-lighter);
-  margin-top: -5px;
-  border: 1px solid var(--heading-font-color);
 }
 
 .tile:hover,
