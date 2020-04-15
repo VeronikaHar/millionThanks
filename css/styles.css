@@ -8,7 +8,6 @@
   --font-size-basic: 20px;
   --font-size-h: 28px;
   --shadow: 4px 3px 20px #fff;
-  --radius: 7px;
 }
 
 * {
@@ -25,7 +24,8 @@ body {
 }
 
 .board {
-  line-height: 0;
+  display: flex;
+  flex-wrap: wrap;
 }
 
 footer {
@@ -64,10 +64,11 @@ header {
   height: 40px;
   width: 40px;
   border: 1px solid var(--tile-color-darker);
-  background-size:cover;
-  background-position: center;
   background-color: var(--tile-color-lighter);
-  opacity: 0.65;
+  opacity: 0.6;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .tile:hover,
@@ -76,6 +77,17 @@ header {
   opacity: 1;
 }
 
-.tile:active {
-  box-shadow: none;
+img {
+  opacity: 0.7;
+  height: 35px;
+  width: 35px;
+  padding: 8px;
+}
+
+img:hover,
+.tile:focus img {
+  transition: 0.5s;
+  transform: rotate(90deg);
+  opacity: 1;
+  cursor: pointer;
 }
