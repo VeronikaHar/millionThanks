@@ -5,6 +5,7 @@ function addTileItem() {
     let $tileEl = document.createElement('div');
     $tileEl.classList.add('tile');
     let $imgEl = document.createElement('img');
+    $imgEl.classList.add('plus');
     $imgEl.setAttribute('src', './css/1.jpg');
     $tileEl.appendChild($imgEl);
     let $boardEl = document.getElementsByClassName('board')[0];
