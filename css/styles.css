@@ -7,7 +7,8 @@
   --font-weight: 700;
   --font-size-basic: 20px;
   --font-size-h: 28px;
-  --shadow: 4px 3px 20px #fff;
+  --radius: 3px;
+  --shadow: 3px 4px 7px 0 #B6B6B6;
 }
 
 * {
@@ -32,7 +33,7 @@ footer {
   height: 40px;
 }
 
-h1 {
+h1, h2, h3 {
   font-family: var(--heading-font);
   font-size: 38px;
   font-weight: var(--font-weight);
@@ -40,24 +41,86 @@ h1 {
 }
 
 h2 {
-  font-family: var(--heading-font);
   font-size: var(--font-size-h);
-  font-weight: var(--font-weight);
-  color: var(--heading-font-color);
-  text-shadow: var(--shadow);
-}
-
-h3 {
-  font-family: var(--heading-font);
-  font-size: var(--font-size-basic);
-  font-weight: var(--font-weight);
-  color: var(--heading-font-color);
-  text-shadow: var(--shadow);
 }
 
 header {
   width: 100%;
   text-align: center;
+}
+
+#modal-container {
+  display: none;
+}
+
+#modal-container.is-visible {
+  position: fixed;
+  padding: 20px;
+  box-sizing: border-box;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  
+  /* to show it above other content */
+  z-index: 9; 
+  
+  /* to allow scrolling if the screen is not high enough*/
+  overflow: auto; 
+  
+  /* this is used to center the modal */
+  display: grid;
+  text-align: center;
+}
+
+.modal {
+  margin: auto;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  padding: 15px;
+  width: 700px;
+  border-radius: var(--radius);
+}
+
+.modal img {
+  max-width: 550px;
+  margin: 15px auto;
+}
+
+.modal-close {
+  align-self: flex-end;
+  border: 0;
+  border-radius: var(--radius);
+  background: var(--heading-font-color);
+  color: white;
+  text-decoration: none;
+  text-align: center;
+  font-family: var(--heading-font);
+  font-size: 18px;
+  padding: 8px;
+  margin: 10px;
+}
+
+.modal-close:hover,
+.modal-close:focus {
+  cursor: pointer;
+  background-color: #e71212;
+  box-shadow: var(--shadow);
+}
+
+.modal-close:active {
+  box-shadow: none;
+  outline: none;
+}
+
+.modal p {
+  padding: 8px;
+  margin: var(--gap);
+  background: rgb(233, 232, 232);
+  border-radius: var(--radius);
+  text-align: left;
 }
 
 .tile {
