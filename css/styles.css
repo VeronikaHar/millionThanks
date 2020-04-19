@@ -154,3 +154,9 @@ header {
   opacity: 1;
   cursor: pointer;
 }
+
+@media all and (max-width: 757px) {
+  .modal {
+    width: 100%;
+  }
+}
