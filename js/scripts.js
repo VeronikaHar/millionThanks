@@ -1,3 +1,12 @@
+function loadList() {
+  let apiUrl = 'https://togetherwestand-dev.azurewebsites.net/swagger/index.html';
+
+  return fetch(apiUrl)
+    .then(response => {
+      console.log(response.json());
+    }).catch(e => { console.error(e); });
+}
+
 //Function that creates 10px*10px image tiles
 function addTileItem() {
   //Shaping DOM structure
@@ -75,3 +84,4 @@ function showDetails() {
 }
 
 addTileItem();
+loadList();

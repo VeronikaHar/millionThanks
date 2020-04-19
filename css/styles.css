@@ -58,8 +58,7 @@ header {
 
 #modal-container.is-visible {
   position: fixed;
-  padding: 20px;
-  box-sizing: border-box;
+  padding: 10px;
   top: 0;
   left: 0;
   width: 100%;
