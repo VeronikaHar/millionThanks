@@ -3,7 +3,9 @@ function loadList() {
 
   return fetch(apiUrl)
     .then(response => {
-      console.log('RES', response.json());
+      response.json();
+    }).then(json => {
+      console.log('test', json);
     }).catch(e => { console.error(e); });
 }
 
