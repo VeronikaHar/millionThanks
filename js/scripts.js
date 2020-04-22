@@ -1,3 +1,12 @@
+function loadList() {
+  let apiUrl = 'https://www.millionthankyou.com/api/GetAll';
+
+  return fetch(apiUrl)
+    .then(response => {
+      console.log('RES', response.json());
+    }).catch(e => { console.error(e); });
+}
+
 //Function that creates 10px*10px image tiles
 function addTileItem() {
   //Shaping DOM structure
@@ -78,3 +87,4 @@ function showDetails(gridId) {
 }
 
 addTileItem();
+loadList();
