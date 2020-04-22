@@ -158,6 +158,10 @@ header {
 }
 
 @media all and (max-width: 757px) {
+  h1{
+    font-size: 30px;
+  }
+
   .modal {
     width: 100%;
   }

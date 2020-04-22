@@ -1,34 +1,28 @@
-function loadList() {
-  let apiUrl = 'https://togetherwestand-dev.azurewebsites.net/swagger/index.html';
-
-  return fetch(apiUrl)
-    .then(response => {
-      console.log(response.json());
-    }).catch(e => { console.error(e); });
-}
-
 //Function that creates 10px*10px image tiles
 function addTileItem() {
   //Shaping DOM structure
   for (let i = 0; i < 1000; i++) {
     let tileEl = document.createElement('div');
     tileEl.classList.add('tile');
+    tileEl.setAttribute('id', i);
+
     let imgEl = document.createElement('img');
     imgEl.classList.add('plus');
     imgEl.setAttribute('src', './css/1.jpg');
+
     tileEl.appendChild(imgEl);
     let $boardEl = document.getElementsByClassName('board')[0];
     $boardEl.appendChild(tileEl);
 
     // Event listener that dispalys Thank you modal details upon clicking on image tile
     tileEl.addEventListener('click', () => {
-      showDetails();
+      showDetails(i);
     });
   }
 }
 
 // Function that displays modal with thank you details
-function showDetails() {
+function showDetails(gridId) {
   (() => {
     let $modalContainer = document.querySelector('#modal-container');
 
@@ -58,7 +52,7 @@ function showDetails() {
       $modalContainer.classList.add('is-visible');
     }
 
-    showModal('test', 'text');
+    showModal(gridId);
 
     function hideModal() {
       $modalContainer.classList.remove('is-visible');
@@ -74,9 +68,9 @@ function showDetails() {
       }
     });
 
+    //Close modal by clicking outside of the modal
     $modalContainer.addEventListener('click', e => {
-      let target = e.target;
-      if (target === $modalContainer) {
+      if (e.target === $modalContainer) {
         hideModal();
       }
     });
@@ -84,4 +78,3 @@ function showDetails() {
 }
 
 addTileItem();
-loadList();
