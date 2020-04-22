@@ -32,6 +32,31 @@ body {
   justify-content: center
 }
 
+button {
+  border: 0;
+  border-radius: var(--radius);
+  background: var(--heading-font-color);
+  color: white;
+  text-decoration: none;
+  text-align: center;
+  font-family: var(--heading-font);
+  font-size: 18px;
+  padding: 8px;
+  margin: 10px;
+}
+
+button:hover,
+button:focus {
+  cursor: pointer;
+  background-color: #e71212;
+  box-shadow: var(--shadow);
+}
+
+button:active {
+  box-shadow: none;
+  outline: none;
+}
+
 footer {
   height: 40px;
 }
@@ -52,11 +77,14 @@ header {
   text-align: center;
 }
 
-#modal-container {
-  display: none;
+label {
+  display: block;
+  width: 100%;
+  text-align: left;
+  margin: 10px;
 }
 
-#modal-container.is-visible {
+#modal-container {
   position: fixed;
   padding: 10px;
   top: 0;
@@ -76,7 +104,8 @@ header {
   text-align: center;
 }
 
-.modal {
+#display-modal,
+#submit-modal {
   margin: auto;
   background-color: white;
   display: flex;
@@ -86,43 +115,37 @@ header {
   border-radius: var(--radius);
 }
 
-.modal img {
+#display-modal img {
   max-width: 550px;
   margin: 15px auto;
 }
 
 .modal-close {
   align-self: flex-end;
-  border: 0;
-  border-radius: var(--radius);
-  background: var(--heading-font-color);
-  color: white;
-  text-decoration: none;
-  text-align: center;
-  font-family: var(--heading-font);
-  font-size: 18px;
-  padding: 8px;
-  margin: 10px;
+  background: none;
+  color: var(--tile-color-darker);
+  font-size: 20px;
+  margin: 0;
+  padding: 5px;
+  position: fixed;
 }
 
 .modal-close:hover,
 .modal-close:focus {
+  color: var(--heading-font-color);
   cursor: pointer;
-  background-color: #e71212;
-  box-shadow: var(--shadow);
 }
 
-.modal-close:active {
-  box-shadow: none;
-  outline: none;
-}
-
-.modal p {
+#display-modal p {
   padding: 8px;
   margin: var(--gap);
   background: rgb(233, 232, 232);
   border-radius: var(--radius);
   text-align: left;
+}
+
+.hidden {
+  display: none!important;
 }
 
 .tile {
@@ -162,7 +185,8 @@ header {
     font-size: 30px;
   }
 
-  .modal {
+  #display-modal,
+  #submit-modal {
     width: 100%;
   }
 }

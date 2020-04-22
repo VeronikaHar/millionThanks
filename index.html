@@ -15,7 +15,35 @@
     <header>
         <h1>Million Thank You</h1>
     </header>
-    <div id="modal-container"></div>
+    <div id="modal-container" class="hidden">
+        <div id="display-modal" class="hidden">
+            <span class="modal-close">X</span>
+            <img src="./css/1.jpg">
+            <p></p>
+        </div>
+        <div id="submit-modal" class="hidden">
+            <span class="modal-close">X</span>
+            <h2>Please fill out the form: </h2>
+            <form method="post">
+                <label for="name">From:
+                    <input type="text" name="name" placeholder="Your name">
+                </label>
+                <label for="email">Your email*:
+                    <input type="text" name="email" placeholder="Your email">
+                </label>
+                <label for="thx">Thank you to:
+                    <input type="text" name="thx" placeholder="Who would you like to thank?">
+                </label>
+                <label for="hshtg">Hashtags:
+                    <input type="text" name="hshtg" placeholder="Ex.: #stopcovid19">
+                </label>
+                <label for="img">Select image:
+                    <input type="file" id="img" name="img" accept="image/*">
+                </label>
+                <button class="submit">Upload</button>
+            </form>
+        </div>
+    </div>
     <div class="board">
         <!--here go all the <img> items with thank-you picture inside-->
     </div>

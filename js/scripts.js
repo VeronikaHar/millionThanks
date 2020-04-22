@@ -1,4 +1,4 @@
-function loadList() {
+function getAll() {
   let apiUrl = 'https://www.millionthankyou.com/api/GetAll';
 
   return fetch(apiUrl)
@@ -36,46 +36,43 @@ function addTileItem() {
 // Function that displays modal with thank you details
 function showDetails(gridId) {
   (() => {
-    let $modalContainer = document.querySelector('#modal-container');
+    let $modalContainer = document.querySelector('#modal-container'),
+      $submitModal = $modalContainer.querySelector('#submit-modal'),
+      $displayModal = $modalContainer.querySelector('#display-modal'),
+      $closeBtns = document.getElementsByClassName('modal-close');
 
-    function showModal(text) {
-      // Clear all existing modal content
-      $modalContainer.innerHTML = '';
+    [...$closeBtns].forEach(btn => {
+      btn.addEventListener('click', hideModal);
+    })
 
-      let modal = document.createElement('div');
-      modal.classList.add('modal');
-
-      //Add new modal content
-      let imgEl = document.createElement('img');
-      imgEl.setAttribute('src', './css/1.jpg');
-
-      let contentEl = document.createElement('p');
-      contentEl.innerText = text;
-
-      let closeBtnEl = document.createElement('button');
-      closeBtnEl.classList.add('modal-close');
-      closeBtnEl.innerText = 'Back';
-      closeBtnEl.addEventListener('click', hideModal);
-
-      modal.appendChild(imgEl);
-      modal.appendChild(contentEl);
-      modal.appendChild(closeBtnEl);
-      $modalContainer.appendChild(modal);
-      $modalContainer.classList.add('is-visible');
+    //modal with a submit form for an empty thank you tile
+    function submitModal(id) {
+      $modalContainer.classList.remove('hidden');
+      $submitModal.classList.remove('hidden');
     }
 
-    showModal(gridId);
+    //Thank You modal for the tiles that were uploaded
+    function displayModal(text) {
+      // Clear all existing modal content
+      $contentEl = $displayModal.getElementsByTagName('p')[0];
+      $contentEl.innerText = '';
+      $contentEl.innerText = text;
+
+      $modalContainer.classList.remove('hidden');
+      $displayModal.classList.remove('hidden');
+    }
+
+    submitModal(gridId);
 
     function hideModal() {
-      $modalContainer.classList.remove('is-visible');
+      $modalContainer.classList.add('hidden');
+      $displayModal.classList.add('hidden');
+      $submitModal.classList.add('hidden');
     }
 
     //Close modal by pressing ESC on the keyboard
     window.addEventListener('keydown', e => {
-      if (
-        e.key === 'Escape' &&
-        $modalContainer.classList.contains('is-visible')
-      ) {
+      if (e.key === 'Escape' && $modalContainer.classList !== 'hidden') {
         hideModal();
       }
     });
@@ -90,4 +87,4 @@ function showDetails(gridId) {
 }
 
 addTileItem();
-loadList();
+getAll();
