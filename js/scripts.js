@@ -2,10 +2,11 @@ function loadList() {
   let apiUrl = 'https://www.millionthankyou.com/api/GetAll';
 
   return fetch(apiUrl)
-    .then(response => {
-      response.json();
-    }).then(json => {
-      console.log('test', json);
+    .then((response) => {
+      return response.json();
+    })
+    .then((data) => {
+      console.log('test', data);
     }).catch(e => { console.error(e); });
 }
 
