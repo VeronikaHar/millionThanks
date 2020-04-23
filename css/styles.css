@@ -2,7 +2,7 @@
   --tile-color-lighter: #efeeee;
   --tile-color-darker: #cecece;
   --heading-font: 'Muli', sans-serif;
-  --heading-font-color: #ff2f2f;
+  --heading-font-color: #e71212;
   --gap: 10px;
   --font-weight: 700;
   --font-size-basic: 20px;
@@ -41,14 +41,13 @@ button {
   text-align: center;
   font-family: var(--heading-font);
   font-size: 18px;
-  padding: 8px;
-  margin: 10px;
+  padding: 10px;
 }
 
 button:hover,
 button:focus {
   cursor: pointer;
-  background-color: #e71212;
+  background-color: #ff2f2f;
   box-shadow: var(--shadow);
 }
 
@@ -146,6 +145,11 @@ label {
 
 .hidden {
   display: none!important;
+}
+
+.submit {
+  margin: 15px auto;
+  width: 70%;
 }
 
 .tile {
