@@ -13,13 +13,14 @@
 
 * {
   box-sizing: border-box;
+  font-family:  'Lucida Sans Unicode', arial;
 }
 
 body {
   background-color: #fff;
-  font-family: 'Open Sans', sans-serif;
   font-weight: 300;
   font-size: var(--font-size-basic);
+  color: #113448;
   max-width: 1000px;
   margin: auto;
 }
@@ -60,8 +61,11 @@ footer {
   height: 40px;
 }
 
-h1, h2, h3 {
-  font-family: var(--heading-font);
+form{
+  display: contents
+}
+
+h1, h2 {
   font-size: 38px;
   font-weight: var(--font-weight);
   color: var(--heading-font-color);
@@ -77,19 +81,17 @@ header {
 }
 
 label {
-  display: flex;
   text-align: left;
-  margin: 10px;
-  align-items: baseline;
+  margin: 15px 7px 5px;
+  font-size: 20px;
 }
 
-label input {
+input {
   margin: 0 5px;
   padding: 7px;
   border-radius: 2px;
   border: 0.7px solid #cecece;
   font-size: 16px;
-  flex: 1;
 }
 
 input#img {
@@ -122,7 +124,7 @@ input#img {
   background-color: white;
   display: flex;
   flex-direction: column;
-  padding: 15px;
+  padding: 20px;
   width: 700px;
   border-radius: var(--radius);
 }
@@ -205,5 +207,7 @@ input#img {
   #display-modal,
   #submit-modal {
     width: 100%;
+    padding: 10px;
+    min-width: 200px;
   }
 }
