@@ -1,10 +1,11 @@
 :root {
   --tile-color-lighter: #efeeee;
   --tile-color-darker: #cecece;
+  --gray: #909597;
   --heading-font: 'Muli', sans-serif;
   --heading-font-color: #e71212;
   --gap: 10px;
-  --font-weight: 700;
+  --font-weight: 500;
   --font-size-basic: 20px;
   --font-size-h: 28px;
   --radius: 3px;
@@ -36,7 +37,7 @@ body {
 button {
   border: 0;
   border-radius: var(--radius);
-  background: var(--heading-font-color);
+  background: #14bf98;
   color: white;
   text-decoration: none;
   text-align: center;
@@ -66,13 +67,12 @@ form{
 }
 
 h1 {
-  font-size: 38px;
-  font-weight: var(--font-weight);
+  font: var(--font-weight) 38px var(--heading-font);
+  color: var(--heading-font-color);
 }
 
 h2 {
-  font-size: var(--font-size-h);
-  font-weight: var(--font-weight);
+  font: var(--font-weight) var(--font-size-h) var(--heading-font);
   text-align: left;
 }
 
@@ -84,14 +84,13 @@ header {
 label {
   text-align: left;
   margin: 15px 7px 5px;
-  font-size: 20px;
 }
 
 input {
   margin: 0 5px;
   padding: 7px;
   border-radius: 2px;
-  border: 0.7px solid #cecece;
+  border: 0.8px solid var(--gray);
   font-size: 16px;
 }
 
@@ -138,7 +137,7 @@ input#img {
 .modal-close {
   align-self: flex-end;
   background: none;
-  color: var(--tile-color-darker);
+  color: var(--gray);
   font-size: 20px;
   margin: 0;
   padding: 5px;
@@ -201,8 +200,16 @@ input#img {
 }
 
 @media all and (max-width: 757px) {
+  body {
+    font-size: 16px;
+  }
+
   h1{
     font-size: 30px;
+  }
+
+  h2 {
+    font-size: 20px;
   }
 
   #display-modal,
