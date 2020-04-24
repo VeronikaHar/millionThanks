@@ -65,14 +65,14 @@ form{
   display: contents
 }
 
-h1, h2 {
+h1 {
   font-size: 38px;
   font-weight: var(--font-weight);
-  color: var(--heading-font-color);
 }
 
 h2 {
   font-size: var(--font-size-h);
+  font-weight: var(--font-weight);
 }
 
 header {
