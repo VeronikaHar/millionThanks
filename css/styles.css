@@ -73,6 +73,7 @@ h1 {
 h2 {
   font-size: var(--font-size-h);
   font-weight: var(--font-weight);
+  text-align: left;
 }
 
 header {
