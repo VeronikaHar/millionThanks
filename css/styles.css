@@ -46,7 +46,8 @@ button {
   text-align: center;
   font-family: var(--heading-font);
   font-size: 18px;
-  padding: 10px;
+  padding: 10px 15px;
+  align-self: flex-end;
 }
 
 button:hover,
@@ -66,7 +67,8 @@ footer {
 }
 
 form{
-  display: contents
+  display: flex;
+  flex-direction: column;
 }
 
 h1 {
@@ -146,8 +148,6 @@ input#img:hover {
 #submit-modal {
   margin: auto;
   background-color: white;
-  display: flex;
-  flex-direction: column;
   padding: 20px;
   width: 700px;
   border-radius: var(--radius);
@@ -186,9 +186,12 @@ input#img:hover {
   display: none!important;
 }
 
-.submit {
-  margin: 15px auto;
-  width: 70%;
+.primary-btn {
+  margin: 10px;
+}
+
+.secondary-btn {
+  background: var(--gray);
 }
 
 .tile {

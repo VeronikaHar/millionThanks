@@ -17,12 +17,12 @@
     </header>
     <div id="modal-container" class="hidden">
         <div id="display-modal" class="hidden">
-            <span class="modal-close">X</span>
-            <img src="./css/1.jpg">
-            <p></p>
+            <span class="modal-close close">X</span>
+            <div></div>
+            <button class="primary-btn close">Close</button>
         </div>
         <div id="submit-modal" class="hidden">
-            <span class="modal-close">X</span>
+            <span class="modal-close close">X</span>
             <h2>Please fill out the form: </h2>
             <form method="post">
                 <label for="name">From (Optional) </label>
@@ -39,7 +39,8 @@
                     <input type="file" id="img" name="img" accept="image/*">
                 </div>
             </form>
-            <button class="submit">Submit</button>
+            <button class="secondary-btn close">Cancel</button>
+            <button class="primary-btn">Submit</button>
         </div>
     </div>
     <div class="board">
