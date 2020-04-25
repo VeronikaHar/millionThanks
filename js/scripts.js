@@ -89,7 +89,7 @@ function displayModal(i) {
   imgEl.setAttribute('src', userRepo[i].thumbnailImageUrl);
 
   let pEl = document.createElement('p');
-  pEl.innerText = i;
+  pEl.innerText = userRepo[i].thanksTo;
 
   $contentEl.appendChild(imgEl);
   $contentEl.appendChild(pEl);
