@@ -48,6 +48,16 @@ button {
   font-size: 18px;
   padding: 10px 15px;
   align-self: flex-end;
+  float: right;
+}
+
+.primary-btn,
+.secondary-btn {
+  margin: 10px;
+}
+
+.secondary-btn {
+  background: var(--gray);
 }
 
 button:hover,
@@ -165,7 +175,8 @@ input#img:hover {
   font-size: 20px;
   margin: 0;
   padding: 5px;
-  position: fixed;
+  float: right;
+  margin-right: 5px;
 }
 
 .modal-close:hover,
@@ -184,14 +195,6 @@ input#img:hover {
 
 .hidden {
   display: none!important;
-}
-
-.primary-btn {
-  margin: 10px;
-}
-
-.secondary-btn {
-  background: var(--gray);
 }
 
 .tile {
