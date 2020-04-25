@@ -208,6 +208,12 @@ input#img:hover {
   opacity: 1;
 }
 
+.custom {
+  opacity: 0.7;
+  height: 38px;
+  width: 38px;
+}
+
 .plus {
   opacity: 0.7;
   height: 35px;

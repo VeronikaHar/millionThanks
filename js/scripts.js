@@ -1,3 +1,5 @@
+const userRepo = [];
+
 function getAll() {
   let apiUrl = 'https://www.millionthankyou.com/api/GetAll';
 
@@ -6,12 +8,16 @@ function getAll() {
       return response.json();
     })
     .then((data) => {
-      console.log('test', data);
+      data.forEach(user => {
+        userRepo.push(user);
+      });
+      addTileItem();
     }).catch(e => { console.error(e); });
 }
 
 //Function that creates 10px*10px image tiles
 function addTileItem() {
+
   //Shaping DOM structure
   for (let i = 0; i < 1000; i++) {
     let tileEl = document.createElement('div');
@@ -19,8 +25,16 @@ function addTileItem() {
     tileEl.setAttribute('id', i);
 
     let imgEl = document.createElement('img');
-    imgEl.classList.add('plus');
-    imgEl.setAttribute('src', './css/1.jpg');
+
+    let imgSrc;
+    if (userRepo[i]) {
+      imgSrc = userRepo[i].thumbnailImageUrl;
+      imgEl.classList.add('custom');
+    } else {
+      imgSrc = './css/1.jpg';
+      imgEl.classList.add('plus');
+    }
+    imgEl.setAttribute('src', imgSrc);
 
     tileEl.appendChild(imgEl);
     let $boardEl = document.getElementsByClassName('board')[0];
@@ -47,6 +61,24 @@ function showDetails(gridId) {
 
     //modal with a submit form for an empty thank you tile
     function submitModal(id) {
+
+      // const formData = new FormData();
+      // const img = document.querySelector('#img');
+
+      // formData.append('Name', 'My Vegas Vacation');
+      // formData.append('file', img.files[0]);
+
+      // fetch('https://example.com/posts', {
+      //   method: 'POST',
+      //   body: formData,
+      // })
+      //   .then((response) => response.json())
+      //   .then((result) => {
+      //     console.log('Success:', result);
+      //   })
+      //   .catch((error) => {
+      //     console.error('Error:', error);
+      //   });
       $modalContainer.classList.remove('hidden');
       $submitModal.classList.remove('hidden');
     }
@@ -86,5 +118,5 @@ function showDetails(gridId) {
   })();
 }
 
-addTileItem();
+
 getAll();
