@@ -1,4 +1,7 @@
-const userRepo = [];
+const $modalContainer = document.querySelector('#modal-container'),
+  $submitModal = $modalContainer.querySelector('#submit-modal'),
+  $displayModal = $modalContainer.querySelector('#display-modal'),
+  userRepo = [];
 
 function getAll() {
   let apiUrl = 'https://www.millionthankyou.com/api/GetAll';
@@ -12,12 +15,12 @@ function getAll() {
         userRepo.push(user);
       });
       addTileItem();
+      console.log(userRepo);
     }).catch(e => { console.error(e); });
 }
 
 //Function that creates 10px*10px image tiles
 function addTileItem() {
-
   //Shaping DOM structure
   for (let i = 0; i < 1000; i++) {
     let tileEl = document.createElement('div');
@@ -28,7 +31,7 @@ function addTileItem() {
 
     let imgSrc;
     if (userRepo[i]) {
-      imgSrc = userRepo[i].thumbnailImageUrl;
+      imgSrc = userRepo[i].originalImageUrl;
       imgEl.classList.add('custom');
     } else {
       imgSrc = './css/1.jpg';
@@ -42,59 +45,69 @@ function addTileItem() {
 
     // Event listener that dispalys Thank you modal details upon clicking on image tile
     tileEl.addEventListener('click', () => {
-      showDetails(i);
+      if (userRepo[i]) {
+        displayModal(i);
+      } else {
+        submitModal();
+      }
     });
   }
 }
 
-// Function that displays modal with thank you details
-function showDetails(gridId) {
+//modal with a submit form for an empty thank you tile
+function submitModal() {
+
+  // const formData = new FormData();
+  // const img = document.querySelector('#img');
+
+  // formData.append('Name', 'My Vegas Vacation');
+  // formData.append('file', img.files[0]);
+
+  // fetch('https://example.com/posts', {
+  //   method: 'POST',
+  //   body: formData,
+  // })
+  //   .then((response) => response.json())
+  //   .then((result) => {
+  //     console.log('Success:', result);
+  //   })
+  //   .catch((error) => {
+  //     console.error('Error:', error);
+  //   });
+  $modalContainer.classList.remove('hidden');
+  $submitModal.classList.remove('hidden');
+  closeModal();
+}
+
+//Thank You modal for the tiles that were uploaded
+function displayModal(i) {
+  // Clear all existing modal content
+  $contentEl = $displayModal.getElementsByTagName('div')[0];
+  $contentEl.innerHTML = '';
+
+  let imgEl = document.createElement('img');
+  imgEl.setAttribute('src', userRepo[i].thumbnailImageUrl);
+
+  let pEl = document.createElement('p');
+  pEl.innerText = i;
+
+  $contentEl.appendChild(imgEl);
+  $contentEl.appendChild(pEl);
+
+  $modalContainer.classList.remove('hidden');
+  $displayModal.classList.remove('hidden');
+  closeModal();
+}
+
+
+// Function that closes modal
+function closeModal() {
   (() => {
-    let $modalContainer = document.querySelector('#modal-container'),
-      $submitModal = $modalContainer.querySelector('#submit-modal'),
-      $displayModal = $modalContainer.querySelector('#display-modal'),
-      $closeBtns = document.getElementsByClassName('modal-close');
+    let $closeBtns = document.getElementsByClassName('close');
 
     [...$closeBtns].forEach(btn => {
       btn.addEventListener('click', hideModal);
     })
-
-    //modal with a submit form for an empty thank you tile
-    function submitModal(id) {
-
-      // const formData = new FormData();
-      // const img = document.querySelector('#img');
-
-      // formData.append('Name', 'My Vegas Vacation');
-      // formData.append('file', img.files[0]);
-
-      // fetch('https://example.com/posts', {
-      //   method: 'POST',
-      //   body: formData,
-      // })
-      //   .then((response) => response.json())
-      //   .then((result) => {
-      //     console.log('Success:', result);
-      //   })
-      //   .catch((error) => {
-      //     console.error('Error:', error);
-      //   });
-      $modalContainer.classList.remove('hidden');
-      $submitModal.classList.remove('hidden');
-    }
-
-    //Thank You modal for the tiles that were uploaded
-    function displayModal(text) {
-      // Clear all existing modal content
-      $contentEl = $displayModal.getElementsByTagName('p')[0];
-      $contentEl.innerText = '';
-      $contentEl.innerText = text;
-
-      $modalContainer.classList.remove('hidden');
-      $displayModal.classList.remove('hidden');
-    }
-
-    submitModal(gridId);
 
     function hideModal() {
       $modalContainer.classList.add('hidden');
