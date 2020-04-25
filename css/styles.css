@@ -8,11 +8,14 @@
   --font-weight: 500;
   --font-size-basic: 20px;
   --font-size-h: 28px;
+  --font-color: #113448;
   --radius: 3px;
   --shadow: 3px 4px 7px 0 #B6B6B6;
 }
 
-* {
+*,
+*:before,
+*:after {
   box-sizing: border-box;
   font-family:  'Lucida Sans Unicode', arial;
 }
@@ -21,7 +24,7 @@ body {
   background-color: #fff;
   font-weight: 300;
   font-size: var(--font-size-basic);
-  color: #113448;
+  color: var(--font-color);
   max-width: 1000px;
   margin: auto;
 }
@@ -89,13 +92,34 @@ label {
 input {
   margin: 0 5px;
   padding: 7px;
-  border-radius: 2px;
+  border-radius: var(--radius);
   border: 0.8px solid var(--gray);
   font-size: 16px;
 }
 
-input#img {
-  border: none;
+.upload-btn-wrapper {
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
+  margin: 0 5px;
+}
+
+.upload-btn-wrapper input#img {
+  position: absolute;
+  left: 0;
+  top: 0;
+  opacity: 0;
+}
+
+input#img:hover {
+  cursor: pointer;
+}
+
+.upload-btn {
+  float: left;
+  background-color: var(--font-color);
+  padding: 7px;
+  font-size: 16px;
 }
 
 #modal-container {
