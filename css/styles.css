@@ -168,6 +168,7 @@ input#img:hover {
 }
 
 #display-modal img {
+  width: 100%;
   max-width: 550px;
   max-height: 550px;
   min-width: 210px;
@@ -257,5 +258,10 @@ input#img:hover {
     width: 100%;
     padding: 10px;
     min-width: 200px;
+  }
+
+  .primary-btn,
+  .secondary-btn {
+    margin: 5px;
   }
 }
