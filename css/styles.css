@@ -170,8 +170,8 @@ input#img:hover {
 #display-modal img {
   max-width: 550px;
   max-height: 550px;
-  min-width: 200px;
-  min-height: 200px;
+  min-width: 210px;
+  min-height: 210px;
 }
 
 .modal-close {
@@ -208,7 +208,7 @@ input#img:hover {
   width: 40px;
   border: 1px solid var(--tile-color-darker);
   background-color: var(--tile-color-lighter);
-  opacity: 0.8;
+  opacity: 0.7;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -221,13 +221,11 @@ input#img:hover {
 }
 
 .custom {
-  opacity: 0.7;
   height: 38px;
   width: 38px;
 }
 
 .plus {
-  opacity: 0.7;
   height: 35px;
   width: 35px;
   padding: 8px;
