@@ -165,7 +165,10 @@ input#img:hover {
 
 #display-modal img {
   max-width: 550px;
-  margin: 15px auto;
+  max-height: 550px;
+  min-width: 200px;
+  min-height: 200px;
+  margin-top: -250px;
 }
 
 .modal-close {
@@ -202,7 +205,7 @@ input#img:hover {
   width: 40px;
   border: 1px solid var(--tile-color-darker);
   background-color: var(--tile-color-lighter);
-  opacity: 0.6;
+  opacity: 0.8;
   display: flex;
   justify-content: center;
   align-items: center;
