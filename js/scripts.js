@@ -48,32 +48,57 @@ function addTileItem() {
       if (userRepo[i]) {
         displayModal(i);
       } else {
-        submitModal();
+        submitModal(i);
       }
     });
   }
 }
 
 //modal with a submit form for an empty thank you tile
-function submitModal() {
+function submitModal(id) {
 
-  // const formData = new FormData();
-  // const img = document.querySelector('#img');
+  const formData = [],
+    $name = document.getElementById('name'),
+    $email = document.getElementById('email'),
+    $thx = document.getElementById('thx'),
+    $hshtg = document.getElementById('hshtg'),
+    $img = document.querySelector('#img'),
+    $submitBtn = $submitModal.querySelector('#submit');
 
-  // formData.append('Name', 'My Vegas Vacation');
-  // formData.append('file', img.files[0]);
+  $submitBtn.addEventListener('click', () => {
+    formData.push(
+      {
+        'Name': $name.value,
+        'Email ': $email.value,
+        'PhoneNumber': '7347347347',
+        'GridId ': id.toString(),
+        'ThanksTo': $thx.value,
+        'HashTags': $hshtg.value,
+        'file': $img.files[0].name
+      }
+    );
 
-  // fetch('https://example.com/posts', {
-  //   method: 'POST',
-  //   body: formData,
-  // })
-  //   .then((response) => response.json())
-  //   .then((result) => {
-  //     console.log('Success:', result);
-  //   })
-  //   .catch((error) => {
-  //     console.error('Error:', error);
-  //   });
+    // formData.append('Name', $name.value);
+    // formData.append('Email ', $email.value);
+    // formData.append('PhoneNumber', '7347347347');
+    // formData.append('GridId ', id.toString());
+    // formData.append('ThanksTo', $thx.value);
+    // formData.append('HashTags', $hshtg.value);
+    console.log('!!!', formData);
+
+    fetch('https://www.millionthankyou.com/api/UploadData', {
+      method: 'POST',
+      body: formData,
+    })
+      .then((response) => response.json())
+      .then((result) => {
+        console.log('Result:', result);
+      })
+      .catch((error) => {
+        console.error('Error:', error);
+      });
+  });
+
   $modalContainer.classList.remove('hidden');
   $submitModal.classList.remove('hidden');
   closeModal();

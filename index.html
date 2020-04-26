@@ -46,20 +46,20 @@
             <h2>Please fill out the form: </h2>
             <form method="post">
                 <label for="name">From (Optional) </label>
-                <input type="text" name="name" placeholder="Your name">
+                <input type="text" name="name" maxlength="50" id="name" placeholder="Your name">
                 <label for="email">Email</label>
-                <input type="text" name="email" placeholder="Your email">
+                <input type="text" name="email" maxlength="50" id="email" placeholder="Your email">
                 <label for="thx">Special thank you to (Optional)</label>
-                <input type="text" name="thx" placeholder="Who would you like to thank?">
+                <input type="text" id="thx" maxlength="60" placeholder="Who would you like to thank?">
                 <label for="hshtg">Hashtags (Optional)</label>
-                <input type="text" name="hshtg" placeholder="Ex.: #stopcovid19">
+                <input type="text" id="hshtg" maxlength="60" placeholder="Ex.: #thankyou">
                 <label for="img">Image</label>
                 <div class="upload-btn-wrapper">
                     <button class="upload-btn">Add image</button>
                     <input type="file" id="img" name="img" accept="image/*">
                 </div>
             </form>
-            <button class="primary-btn">Submit</button>
+            <button class="primary-btn" id="submit">Submit</button>
             <button class="secondary-btn close">Cancel</button>
         </div>
     </div>
