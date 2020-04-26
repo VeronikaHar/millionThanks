@@ -116,7 +116,7 @@ function displayModal(i) {
   $contentEl.innerHTML = '';
 
   let imgEl = document.createElement('img');
-  imgEl.setAttribute('src', userRepo[i].thumbnailImageUrl);
+  imgEl.setAttribute('src', userRepo[i].originalImageUrl);
 
   let pEl = document.createElement('h2');
   if (userRepo[i].thanksTo) {
