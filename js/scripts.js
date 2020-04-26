@@ -78,7 +78,7 @@ function uploadModal(id) {
     //     'file': $img.files[0]
     //   }
     // );
-    //console.log('!!!', formData[0]);
+    //console.log('111', formData[0]);
 
     // var model = {
     //   "Name": $name.value,
@@ -98,13 +98,13 @@ function uploadModal(id) {
     formData.append('ThanksTo', $thx.value);
     formData.append('HashTags', $hshtg.value);
     formData.append('file', $img.files[0])
-    console.log('!!!', formData.values());
+    console.log('!!', formData.values());
 
     fetch('https://www.millionthankyou.com/api/UploadData', {
       method: 'POST',
       headers: {
         'accept': '*/*',
-        'Content-Type': 'multipart/form-data',
+        'Content-Type': 'undefined',
       },
       body: formData,
     })
