@@ -80,6 +80,17 @@ function uploadModal(id) {
     // );
     //console.log('!!!', formData[0]);
 
+    var model = {
+      "Name": $name.value,
+      "Email": $email.value,
+      "PhoneNumber": "7347347347",
+      "GridId": id.toString(),
+      "ThanksTo": $thx.value,
+      "HashTags": $hshtg.value
+    };
+    formData.append("data", model);
+    formData.append("file", $img.files[0]);
+
     // formData.append('Name', $name.value);
     // formData.append('Email ', $email.value);
     // formData.append('PhoneNumber', '7347347347');
@@ -87,22 +98,14 @@ function uploadModal(id) {
     // formData.append('ThanksTo', $thx.value);
     // formData.append('HashTags', $hshtg.value);
     // formData.append('file', $img.files[0])
-    // console.log('!!!', formData.values());
-
-    var model = {
-      Name: $name.value,
-      Email: $email.value,
-      PhoneNumber: "7347347347",
-      GridId: id.toString(),
-      ThanksTo: $thx.value,
-      HashTags: $hshtg.value
-    };
-
-    formData.append("data", model);
-    formData.append("file", $img.files[0]);
+    console.log('!!!', formData.values());
 
     fetch('https://www.millionthankyou.com/api/UploadData', {
       method: 'POST',
+      headers: {
+        'accept': '*/*',
+        'Content-Type': 'multipart/form-data',
+      },
       body: formData,
     })
       .then((response) => response.json())
