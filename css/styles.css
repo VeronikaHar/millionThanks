@@ -163,12 +163,15 @@ input#img:hover {
   border-radius: var(--radius);
 }
 
+#display-modal div {
+  margin-top: -310px;
+}
+
 #display-modal img {
   max-width: 550px;
   max-height: 550px;
   min-width: 200px;
   min-height: 200px;
-  margin-top: -250px;
 }
 
 .modal-close {

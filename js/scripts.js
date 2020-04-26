@@ -88,11 +88,15 @@ function displayModal(i) {
   let imgEl = document.createElement('img');
   imgEl.setAttribute('src', userRepo[i].thumbnailImageUrl);
 
-  let pEl = document.createElement('p');
-  pEl.innerText = userRepo[i].thanksTo;
-
-  $contentEl.appendChild(imgEl);
+  let pEl = document.createElement('h2');
+  if (userRepo[i].thanksTo) {
+    pEl.innerText = 'Thank you! ' + userRepo[i].thanksTo;
+  } else {
+    pEl.innerText = 'Thank you, frontline worker!'
+  }
   $contentEl.appendChild(pEl);
+  $contentEl.appendChild(imgEl);
+
 
   $modalContainer.classList.remove('hidden');
   $displayModal.classList.remove('hidden');
