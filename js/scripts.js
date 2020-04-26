@@ -3,6 +3,7 @@ const $modalContainer = document.querySelector('#modal-container'),
   $displayModal = $modalContainer.querySelector('#display-modal'),
   userRepo = [];
 
+//gets all uploaded thankyou tile info from the API
 function getAll() {
   let apiUrl = 'https://www.millionthankyou.com/api/GetAll';
 
@@ -19,7 +20,7 @@ function getAll() {
     }).catch(e => { console.error(e); });
 }
 
-//Function that creates 10px*10px image tiles
+//renders small image tiles
 function addTileItem() {
   //Shaping DOM structure
   for (let i = 0; i < 1000; i++) {
@@ -43,20 +44,19 @@ function addTileItem() {
     let $boardEl = document.getElementsByClassName('board')[0];
     $boardEl.appendChild(tileEl);
 
-    // Event listener that dispalys Thank you modal details upon clicking on image tile
+    // Event listener that dispalys a modal
     tileEl.addEventListener('click', () => {
       if (userRepo[i]) {
         displayModal(i);
       } else {
-        submitModal(i);
+        uploadModal(i);
       }
     });
   }
 }
 
 //modal with a submit form for an empty thank you tile
-function submitModal(id) {
-
+function uploadModal(id) {
   const formData = [],
     $name = document.getElementById('name'),
     $email = document.getElementById('email'),
@@ -74,7 +74,7 @@ function submitModal(id) {
         'GridId ': id.toString(),
         'ThanksTo': $thx.value,
         'HashTags': $hshtg.value,
-        'file': $img.files[0].name
+        'file': $img.files[0]
       }
     );
 
@@ -122,14 +122,12 @@ function displayModal(i) {
   $contentEl.appendChild(pEl);
   $contentEl.appendChild(imgEl);
 
-
   $modalContainer.classList.remove('hidden');
   $displayModal.classList.remove('hidden');
   closeModal();
 }
 
-
-// Function that closes modal
+//closes modal on clicking outside of the modal, pressing ESC or close btn
 function closeModal() {
   (() => {
     let $closeBtns = document.getElementsByClassName('close');
