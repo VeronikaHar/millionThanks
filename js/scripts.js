@@ -57,7 +57,7 @@ function addTileItem() {
 
 //modal with a submit form for an empty thank you tile
 function uploadModal(id) {
-  const formData = [],
+  const formData = new FormData(),
     $name = document.getElementById('name'),
     $email = document.getElementById('email'),
     $thx = document.getElementById('thx'),
@@ -66,28 +66,33 @@ function uploadModal(id) {
     $submitBtn = $submitModal.querySelector('#submit');
 
   $submitBtn.addEventListener('click', () => {
-    formData.push(
-      {
-        'Name': $name.value,
-        'Email ': $email.value,
-        'PhoneNumber': '7347347347',
-        'GridId ': id.toString(),
-        'ThanksTo': $thx.value,
-        'HashTags': $hshtg.value,
-        'file': $img.files[0]
-      }
-    );
+    // formData.push(
+    //   {
+    //     'Name': $name.value,
+    //     'Email ': $email.value,
+    //     'PhoneNumber': '7347347347',
+    //     'GridId ': id.toString(),
+    //     'ThanksTo': $thx.value,
+    //     'HashTags': $hshtg.value,
+    //     'file': $img.files[0]
+    //   }
+    // );
 
-    // formData.append('Name', $name.value);
-    // formData.append('Email ', $email.value);
-    // formData.append('PhoneNumber', '7347347347');
-    // formData.append('GridId ', id.toString());
-    // formData.append('ThanksTo', $thx.value);
-    // formData.append('HashTags', $hshtg.value);
-    console.log('!!!', formData);
+    formData.append('Name', $name.value);
+    formData.append('Email ', $email.value);
+    formData.append('PhoneNumber', '7347347347');
+    formData.append('GridId ', id.toString());
+    formData.append('ThanksTo', $thx.value);
+    formData.append('HashTags', $hshtg.value);
+    formData.append('file', $img.files[0])
+    console.log('!!!', formData[0]);
 
     fetch('https://www.millionthankyou.com/api/UploadData', {
       method: 'POST',
+      headers: {
+        'accept': '*/*',
+        'Content-Type': 'multipart/form-data',
+      },
       body: formData,
     })
       .then((response) => response.json())
