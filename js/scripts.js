@@ -66,12 +66,12 @@ function uploadModal(id) {
     $submitBtn = $submitModal.querySelector('#submit');
 
   $submitBtn.addEventListener('click', () => {
-    formData.append('Name', $name.value);
-    formData.append('Email ', $email.value);
-    formData.append('PhoneNumber', '7347347347');
-    formData.append('GridId ', id.toString());
-    formData.append('ThanksTo', $thx.value);
-    formData.append('HashTags', $hshtg.value);
+    formData.append('name', $name.value);
+    formData.append('email ', $email.value);
+    formData.append('phoneNumber', '7347347347');
+    formData.append('gridId ', id.toString());
+    formData.append('thanksTo', $thx.value);
+    formData.append('hashTags', $hshtg.value);
     formData.append('file', $img.files[0])
     console.log('!', formData.values());
 
