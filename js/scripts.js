@@ -73,13 +73,10 @@ function uploadModal(id) {
     formData.append('ThanksTo', $thx.value);
     formData.append('HashTags', $hshtg.value);
     formData.append('file', $img.files[0])
-    console.log('!!', formData.values());
+    console.log('!', formData.values());
 
     fetch('https://www.millionthankyou.com/api/UploadData', {
       method: 'POST',
-      headers: {
-        'Content-Type': 'application/json; charset=utf-8'
-      },
       body: formData,
     })
       .then((response) => response.json())
