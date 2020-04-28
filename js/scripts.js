@@ -77,6 +77,9 @@ function uploadModal(id) {
 
     fetch('https://www.millionthankyou.com/api/UploadData', {
       method: 'POST',
+      headers: {
+        'Content-Type': 'multipart/form-data; boundary=----WebKitFormBoundaryNxMuwWWvomqAKUIQ'
+      },
       body: formData,
     })
       .then((response) => response.json())
