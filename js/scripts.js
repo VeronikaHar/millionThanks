@@ -78,7 +78,7 @@ function uploadModal(id) {
     await fetch('https://www.millionthankyou.com/api/UploadData', {
       method: 'POST',
       headers: {
-        'Content-Type': 'multipart/form-data; boundary=----WebKitFormBoundaryNxMuwWWvomqAKUIQ'
+        'Content-Type': 'multipart/form-data'
       },
       body: formData,
     })
