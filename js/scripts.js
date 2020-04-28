@@ -73,9 +73,9 @@ function uploadModal(id) {
     formData.append('thanksTo', $thx.value);
     formData.append('hashTags', $hshtg.value);
     formData.append('file', $img.files[0])
-    console.log('!', formData.values());
+    console.log('!!', formData.values());
 
-    fetch('https://www.millionthankyou.com/api/UploadData', {
+    await fetch('https://www.millionthankyou.com/api/UploadData', {
       method: 'POST',
       headers: {
         'Content-Type': 'multipart/form-data; boundary=----WebKitFormBoundaryNxMuwWWvomqAKUIQ'
