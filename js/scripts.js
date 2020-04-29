@@ -75,12 +75,16 @@ function uploadModal(id) {
     formData.append('file', $img.files[0])
     console.log('!!', formData.values());
 
+    postData(formData)
+  });
+
+  async function postData(data) {
     await fetch('https://www.millionthankyou.com/api/UploadData', {
       method: 'POST',
       headers: {
         'Content-Type': 'multipart/form-data'
       },
-      body: formData,
+      body: data,
     })
       .then((response) => response.json())
       .then((result) => {
@@ -89,7 +93,7 @@ function uploadModal(id) {
       .catch((error) => {
         console.error('Error:', error);
       });
-  });
+  }
 
   $modalContainer.classList.remove('hidden');
   $submitModal.classList.remove('hidden');
